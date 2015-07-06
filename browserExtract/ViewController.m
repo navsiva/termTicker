@@ -25,14 +25,19 @@
 }
 - (IBAction)searchPressed:(id)sender {
     
+    
+    
+    
     //check if there is text and set user input to term object
     
     if (sender !=self.searchButton) return;
     
-    if (self.siteTextField.text.length > 0) {
+    if (self.termTextField.text.length && self.siteTextField.text.length > 0) {
         
         self.term = [[Term alloc] init];
         self.term.site = self.siteTextField.text;
+        
+        self.counterLabel.text = @"0";
     }
     
     //pass string to webview and
@@ -42,6 +47,7 @@
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
     self.webView.delegate = self;
+    
     
 
 
@@ -78,7 +84,13 @@
         NSString *word= [plainText substringWithRange:wordRange];
         ++countOfWords;
         NSLog(@"Found word: %@, count of words: %lu", word,(unsigned long)countOfWords);
+        
+        NSString *formattedResult = [NSString stringWithFormat:@"%lu", (unsigned long)countOfWords];
+        
+        self.counterLabel.text = formattedResult;
     }
+    
+    
 }
 
 /*
