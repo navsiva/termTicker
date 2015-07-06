@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Term.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIWebViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *siteTextField;
+@property (weak, nonatomic) IBOutlet UITextField *termTextField;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UILabel *counterLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property Term *term;
 
 @end
-
