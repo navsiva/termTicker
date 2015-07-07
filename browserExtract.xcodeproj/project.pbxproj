@@ -10,12 +10,14 @@
 		92060B7D1B4AF17800ABE684 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060B7C1B4AF17700ABE684 /* main.m */; };
 		92060B801B4AF17800ABE684 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060B7F1B4AF17800ABE684 /* AppDelegate.m */; };
 		92060B831B4AF17800ABE684 /* browserExtract.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92060B811B4AF17800ABE684 /* browserExtract.xcdatamodeld */; };
-		92060B891B4AF17800ABE684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92060B871B4AF17800ABE684 /* Main.storyboard */; };
 		92060B8B1B4AF17800ABE684 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92060B8A1B4AF17800ABE684 /* Images.xcassets */; };
 		92060B8E1B4AF17800ABE684 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92060B8C1B4AF17800ABE684 /* LaunchScreen.xib */; };
 		92060B9A1B4AF17800ABE684 /* browserExtractTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060B991B4AF17800ABE684 /* browserExtractTests.m */; };
 		92060BA81B4AF8DA00ABE684 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BA71B4AF8DA00ABE684 /* ViewController.m */; };
 		92060BAE1B4B00D400ABE684 /* Term.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BAD1B4B00D400ABE684 /* Term.m */; };
+		92060BB11B4C401000ABE684 /* TermCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB01B4C401000ABE684 /* TermCollectionViewController.m */; };
+		92060BB41B4C403C00ABE684 /* TermCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */; };
+		92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92060BB51B4C4CAA00ABE684 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,6 @@
 		92060B7E1B4AF17800ABE684 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92060B7F1B4AF17800ABE684 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		92060B821B4AF17800ABE684 /* browserExtract.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = browserExtract.xcdatamodel; sourceTree = "<group>"; };
-		92060B881B4AF17800ABE684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92060B8A1B4AF17800ABE684 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92060B8D1B4AF17800ABE684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		92060B931B4AF17800ABE684 /* browserExtractTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = browserExtractTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +46,11 @@
 		92060BA71B4AF8DA00ABE684 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		92060BAC1B4B00D400ABE684 /* Term.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Term.h; sourceTree = "<group>"; };
 		92060BAD1B4B00D400ABE684 /* Term.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Term.m; sourceTree = "<group>"; };
+		92060BAF1B4C401000ABE684 /* TermCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermCollectionViewController.h; sourceTree = "<group>"; };
+		92060BB01B4C401000ABE684 /* TermCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermCollectionViewController.m; sourceTree = "<group>"; };
+		92060BB21B4C403C00ABE684 /* TermCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermCollectionViewCell.h; path = ../TermCollectionViewCell.h; sourceTree = "<group>"; };
+		92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermCollectionViewCell.m; path = ../TermCollectionViewCell.m; sourceTree = "<group>"; };
+		92060BB61B4C4CAA00ABE684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +92,17 @@
 		92060B791B4AF17700ABE684 /* browserExtract */ = {
 			isa = PBXGroup;
 			children = (
+				92060BAF1B4C401000ABE684 /* TermCollectionViewController.h */,
+				92060BB01B4C401000ABE684 /* TermCollectionViewController.m */,
+				92060BB21B4C403C00ABE684 /* TermCollectionViewCell.h */,
+				92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */,
 				92060BAC1B4B00D400ABE684 /* Term.h */,
 				92060BAD1B4B00D400ABE684 /* Term.m */,
 				92060B7E1B4AF17800ABE684 /* AppDelegate.h */,
 				92060B7F1B4AF17800ABE684 /* AppDelegate.m */,
-				92060B871B4AF17800ABE684 /* Main.storyboard */,
 				92060BA61B4AF8DA00ABE684 /* ViewController.h */,
 				92060BA71B4AF8DA00ABE684 /* ViewController.m */,
+				92060BB51B4C4CAA00ABE684 /* Main.storyboard */,
 				92060B8A1B4AF17800ABE684 /* Images.xcassets */,
 				92060B8C1B4AF17800ABE684 /* LaunchScreen.xib */,
 				92060B811B4AF17800ABE684 /* browserExtract.xcdatamodeld */,
@@ -207,7 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92060B891B4AF17800ABE684 /* Main.storyboard in Resources */,
+				92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */,
 				92060B8E1B4AF17800ABE684 /* LaunchScreen.xib in Resources */,
 				92060B8B1B4AF17800ABE684 /* Images.xcassets in Resources */,
 			);
@@ -227,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92060BB11B4C401000ABE684 /* TermCollectionViewController.m in Sources */,
 				92060BAE1B4B00D400ABE684 /* Term.m in Sources */,
+				92060BB41B4C403C00ABE684 /* TermCollectionViewCell.m in Sources */,
 				92060B801B4AF17800ABE684 /* AppDelegate.m in Sources */,
 				92060B831B4AF17800ABE684 /* browserExtract.xcdatamodeld in Sources */,
 				92060B7D1B4AF17800ABE684 /* main.m in Sources */,
@@ -254,20 +266,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		92060B871B4AF17800ABE684 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				92060B881B4AF17800ABE684 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		92060B8C1B4AF17800ABE684 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				92060B8D1B4AF17800ABE684 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		92060BB51B4C4CAA00ABE684 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92060BB61B4C4CAA00ABE684 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -426,6 +438,7 @@
 				92060B9F1B4AF17800ABE684 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92060BA01B4AF17800ABE684 /* Build configuration list for PBXNativeTarget "browserExtractTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +447,7 @@
 				92060BA21B4AF17800ABE684 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

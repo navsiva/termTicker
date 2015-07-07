@@ -10,4 +10,17 @@
 
 @implementation Term
 
+-(instancetype)initWithTerm:(NSString *)term site:(NSString *)site termCounter:(NSInteger *)termCounter{
+    self = [super init];
+    if(self){
+        
+        _term = term;
+        _site = site;
+        _termCounter = termCounter;
+        
+    }
+    
+    return self;
+}
+
 @end

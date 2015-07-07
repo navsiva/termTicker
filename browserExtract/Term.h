@@ -16,6 +16,10 @@
 
 @property NSInteger *termCounter;
 
+@property NSDate *timeStamp;
+
+-(instancetype)initWithTerm:(NSString *)term site:(NSString *)site termCounter:(NSInteger *)termCounter;
+
 
 
 @end

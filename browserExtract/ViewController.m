@@ -14,8 +14,25 @@
 
 @implementation ViewController
 
+-(void)loadTerm{
+    if(self.term){
+        
+        self.termTextField.text = self.term.term;
+        self.siteTextField.text = self.term.site;
+        
+    }
+        
+    
+}
+    
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadTerm];
+    
+    
  
 }
 
@@ -23,6 +40,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)historyButton:(UIBarButtonItem *)sender {
+
+
+
+}
+
+
 - (IBAction)searchPressed:(id)sender {
     
     
@@ -32,10 +56,14 @@
     
     if (sender !=self.searchButton) return;
     
-    if (self.termTextField.text.length && self.siteTextField.text.length > 0) {
+    if (self.termTextField.text.length > 0 && self.siteTextField.text.length > 0) {
         
         self.term = [[Term alloc] init];
         self.term.site = self.siteTextField.text;
+        
+        
+        
+        
         
         self.counterLabel.text = @"0";
     }
@@ -49,7 +77,7 @@
     self.webView.delegate = self;
     
     
-
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
 }
 
@@ -91,16 +119,22 @@
     }
     
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if (sender != self.searchButton) return;
+//    if (self.termTextField.text.length > 0 && self.siteTextField.text.length > 0) {
+//        
+//        self.term = [[Term alloc] init];
+//        self.term.site = self.siteTextField.text;
+//        self.term.term = self.termTextField.text;
+//        
+//        self.counterLabel.text = @"0";
+//    }
+//
+//}
 
 @end
