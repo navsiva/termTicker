@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SearchHistory.h"
+#import "SearchQuery.h"
+#import "SearchResult.h"
 
 @interface ViewController : UIViewController<UIWebViewDelegate>
 
@@ -22,6 +23,6 @@
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, strong) SearchHistory *searchHistory;
+@property (nonatomic, strong) SearchQuery *searchQuery;
 
 @end

@@ -8,19 +8,20 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-#import "SearchHistory.h"
+
 
 @interface ViewController ()
+@property(nonatomic,strong) SearchResult *searchResult;
 
 @end
 
 @implementation ViewController
 
 -(void)loadTerm{
-    if(self.searchHistory){
+    if(self.searchQuery){
         
-        self.termTextField.text = self.searchHistory.term;
-        self.siteTextField.text = self.searchHistory.url;
+        self.termTextField.text = self.searchQuery.term;
+        self.siteTextField.text = self.searchQuery.url;
         
     }
         
@@ -55,51 +56,42 @@
     
     //check if there is text and set user input to term object
     
+    self.searchResult= nil;
     
+        
+
+        
     
-    if (sender !=self.searchButton) return;
-    
-    if (self.termTextField.text.length > 0 && self.siteTextField.text.length > 0) {
         
-        
-        if (self.termTextField.text.length && self.siteTextField.text.length){
-            self.searchButton.enabled = YES;
-        } else (self.searchButton.enabled = NO);
-        
-        self.counterLabel.text = @"0";
-        
-        
-        self.searchHistory = [NSEntityDescription insertNewObjectForEntityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
-        self.searchHistory.url = self.siteTextField.text;
-        self.searchHistory.term= self.termTextField.text;
-        
-        
-        NSDate *currentDate = [NSDate date];
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
-        NSString *formattedTimeStamp = [format stringFromDate:currentDate];
-        [format setDateFormat:formattedTimeStamp];
-        
-        NSLog(@"%@", formattedTimeStamp);
-        
-        self.searchHistory.timeStamp = currentDate;
-        
-        
-       
+//        self.searchQuery = [NSEntityDescription insertNewObjectForEntityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
+//        self.searchQuery.url = self.siteTextField.text;
+//        self.searchQuery.term= self.termTextField.text;
+//        
+//        
+//        NSDate *currentDate = [NSDate date];
 //        NSDateFormatter *format = [[NSDateFormatter alloc] init];
 //        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
-//        NSString *formattedTimeStamp = [format stringFromDate:self.searchHistory.timeStamp];
+//        NSString *formattedTimeStamp = [format stringFromDate:currentDate];
 //        [format setDateFormat:formattedTimeStamp];
-        
-        
-//        NSString *countString= [NSString stringWithFormat:@"%d",self.searchHistory.count];
 //        
-//        self.counterLabel.text = countString;
+//        NSLog(@"%@", formattedTimeStamp);
 //        
-//        NSLog(@"%@", countString);
-    }
+//        self.searchHistory.timeStamp = currentDate;
+        
+    
+    
     
     //pass string to webview and
+    
+    if(![self.searchQuery.term isEqualToString:self.termTextField.text] || ![self.searchQuery.url isEqualToString:self.siteTextField.text]){
+     
+        
+        // TODO: check if a query with term == ourterm and url == oururl, if it does exist, use that instead of making a new one.
+        
+        self.searchQuery =[NSEntityDescription insertNewObjectForEntityForName:@"SearchQuery" inManagedObjectContext:self.managedObjectContext];
+        self.searchQuery.term= self.termTextField.text;
+        self.searchQuery.url= self.siteTextField.text;
+    }
     
     NSString *urlString = self.siteTextField.text;
     NSURL *url = [NSURL URLWithString:urlString];
@@ -110,7 +102,9 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
+
 }
+
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -131,7 +125,7 @@
 //    self.term.term = self.termTextField.text;
     
     
-    NSString *formattedTerm = [NSString stringWithFormat:@"\\b%@\\b", self.searchHistory.term];
+    NSString *formattedTerm = [NSString stringWithFormat:@"\\b%@\\b", self.searchQuery.term];
     
     
     
@@ -154,9 +148,14 @@
         
         }
     
-
+    if(!self.searchResult ){
+        self.searchResult = [NSEntityDescription insertNewObjectForEntityForName:@"SearchResult" inManagedObjectContext:self.managedObjectContext];
+        [self.searchQuery addResultsObject:self.searchResult];
+    }
     
-    self.searchHistory.count = countOfWords;
+    self.searchResult.count = countOfWords;
+    self.searchResult.timeStamp= [NSDate date];
+     self.searchQuery.timeStamp= [NSDate date];
     
     
     
@@ -173,18 +172,17 @@
 }
 
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if (sender != self.searchButton) return;
-//    if (self.termTextField.text.length > 0 && self.siteTextField.text.length > 0) {
-//        
-//        self.term = [[Term alloc] init];
-//        self.term.site = self.siteTextField.text;
-//        self.term.term = self.termTextField.text;
-//        
-//        self.counterLabel.text = @"0";
-//    }
-//
-//}
+
+    if (!self.searchQuery.timeStamp) {
+        
+        [self.managedObjectContext deleteObject:self.searchQuery];
+        self.searchQuery = nil;
+    }
+
+}
+
+
 
 @end

@@ -17,7 +17,9 @@
 		92060BB11B4C401000ABE684 /* TermCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB01B4C401000ABE684 /* TermCollectionViewController.m */; };
 		92060BB41B4C403C00ABE684 /* TermCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */; };
 		92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92060BB51B4C4CAA00ABE684 /* Main.storyboard */; };
-		B6E6CB011B4D813800367C41 /* SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6CB001B4D813800367C41 /* SearchHistory.m */; };
+		B683F6621B4ECFA500A691D8 /* QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F6611B4ECFA500A691D8 /* QueueAdditions.m */; };
+		B683F66B1B4F0E8300A691D8 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66A1B4F0E8300A691D8 /* SearchResult.m */; };
+		B683F66E1B4F0E8300A691D8 /* SearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66D1B4F0E8300A691D8 /* SearchQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +51,12 @@
 		92060BB21B4C403C00ABE684 /* TermCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermCollectionViewCell.h; path = ../TermCollectionViewCell.h; sourceTree = "<group>"; };
 		92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermCollectionViewCell.m; path = ../TermCollectionViewCell.m; sourceTree = "<group>"; };
 		92060BB61B4C4CAA00ABE684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6E6CAFF1B4D813800367C41 /* SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistory.h; sourceTree = "<group>"; };
-		B6E6CB001B4D813800367C41 /* SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistory.m; sourceTree = "<group>"; };
+		B683F6601B4ECFA500A691D8 /* QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueAdditions.h; sourceTree = "<group>"; };
+		B683F6611B4ECFA500A691D8 /* QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAdditions.m; sourceTree = "<group>"; };
+		B683F6691B4F0E8300A691D8 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		B683F66A1B4F0E8300A691D8 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		B683F66C1B4F0E8300A691D8 /* SearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchQuery.h; sourceTree = "<group>"; };
+		B683F66D1B4F0E8300A691D8 /* SearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,8 @@
 			children = (
 				92060BAF1B4C401000ABE684 /* TermCollectionViewController.h */,
 				92060BB01B4C401000ABE684 /* TermCollectionViewController.m */,
+				B683F6601B4ECFA500A691D8 /* QueueAdditions.h */,
+				B683F6611B4ECFA500A691D8 /* QueueAdditions.m */,
 				92060BB21B4C403C00ABE684 /* TermCollectionViewCell.h */,
 				92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */,
 				92060B7E1B4AF17800ABE684 /* AppDelegate.h */,
@@ -138,8 +146,10 @@
 		B6694EE71B4C8F83005C02EA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				B6E6CAFF1B4D813800367C41 /* SearchHistory.h */,
-				B6E6CB001B4D813800367C41 /* SearchHistory.m */,
+				B683F66C1B4F0E8300A691D8 /* SearchQuery.h */,
+				B683F66D1B4F0E8300A691D8 /* SearchQuery.m */,
+				B683F6691B4F0E8300A691D8 /* SearchResult.h */,
+				B683F66A1B4F0E8300A691D8 /* SearchResult.m */,
 				92060B811B4AF17800ABE684 /* browserExtract.xcdatamodeld */,
 			);
 			name = "Core Data";
@@ -250,8 +260,10 @@
 				92060B801B4AF17800ABE684 /* AppDelegate.m in Sources */,
 				92060B831B4AF17800ABE684 /* browserExtract.xcdatamodeld in Sources */,
 				92060B7D1B4AF17800ABE684 /* main.m in Sources */,
-				B6E6CB011B4D813800367C41 /* SearchHistory.m in Sources */,
 				92060BA81B4AF8DA00ABE684 /* ViewController.m in Sources */,
+				B683F66B1B4F0E8300A691D8 /* SearchResult.m in Sources */,
+				B683F6621B4ECFA500A691D8 /* QueueAdditions.m in Sources */,
+				B683F66E1B4F0E8300A691D8 /* SearchQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

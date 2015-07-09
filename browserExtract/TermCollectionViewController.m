@@ -7,11 +7,11 @@
 //
 
 #import "TermCollectionViewController.h"
-#import "Term.h"
 #import "ViewController.h"
 #import "TermCollectionViewCell.h"
-#import "SearchHistory.h"
+#import "SearchQuery.h"
 #import "AppDelegate.h"
+#import "QueueAdditions.h"
 
 @interface TermCollectionViewController ()
 
@@ -24,18 +24,26 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-
-
-
-
-
-
 - (IBAction)refreshPressed:(UIBarButtonItem *)sender {
+//    
+//    ViewController *search= [[ViewController alloc]init];
+//    search.searchHistory= [NSEntityDescription insertNewObjectForEntityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
+//    QueueAdditions *queue= [[QueueAdditions alloc]init];
+//    queue.queueAdditions= [[NSMutableArray alloc]init];
+//    [queue.queueAdditions addObject:search.searchHistory];
+//    
+//    NSLog(@"%@",queue.queueAdditions);
     
     
-    //queue fifo code here
+    
+    
+//    NSError *error;
+//    NSString *htmlData= [[NSString alloc]initWithContentsOfURL:<#(NSURL *)#> encoding:NSUTF8StringEncoding error:&error];
+
     
 }
+
+
 
 -(void)loadPastTerms{
     
@@ -48,9 +56,8 @@
     // Grab the data
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-  //  NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-//    SearchHistory *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-//    
+
+   
 //    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
     
     // Save the context.
@@ -103,24 +110,42 @@
     
     TermCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    SearchHistory *searches= (SearchHistory *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    SearchQuery *searches= (SearchQuery *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.termCollectionLabel.text= searches.term;
     cell.siteCollectionLabel.text= searches.url;
+    // TODO: GET TIMESTAMP AND COUNT
+    
+    
+    
     
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"yyyy-MM-dd' at 'HH:mm:ss"];
     NSString *formattedTimeStamp = [format stringFromDate:searches.timeStamp];
     
-    NSLog(@"%@", formattedTimeStamp);
+//    NSLog(@"%@", formattedTimeStamp);
     [format setDateFormat:formattedTimeStamp];
     cell.dateCollectionLabel.text= formattedTimeStamp;
     
-    NSString *countString= [NSString stringWithFormat:@"%d",searches.count];
-    cell.counterCollectionLabel.text= countString;
+    
+    
+    // grab all the related SearchResults
+    // sort by timeStamp
+    // display count of most recent one.
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    
+    NSArray *allResults = searches.results.allObjects;
+    NSArray *sortedResults = [allResults sortedArrayUsingDescriptors:sortDescriptors];
+    
+    
+    SearchResult *mostRecent = [sortedResults firstObject];
 
     
-    
+    NSString *countString = [NSString stringWithFormat:@"%d", mostRecent.count];
+    cell.counterCollectionLabel.text = countString;
 
     return cell;
 }
@@ -144,13 +169,12 @@
         
         ViewController *destination = segue.destinationViewController;
         
-        SearchHistory *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        SearchQuery *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         
-        destination.searchHistory = object;
+        destination.searchQuery = object;
         destination.managedObjectContext = self.managedObjectContext;
 
-        [[segue destinationViewController] setSearchHistory:object];
-        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+   
         
  
 
@@ -173,7 +197,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SearchQuery" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
