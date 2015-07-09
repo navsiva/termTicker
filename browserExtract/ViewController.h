@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Term.h"
+#import "SearchHistory.h"
 
 @interface ViewController : UIViewController<UIWebViewDelegate>
 
@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
-@property Term *term;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong) SearchHistory *searchHistory;
 
 @end

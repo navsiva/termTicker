@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface TermCollectionViewController : UICollectionViewController
+@interface TermCollectionViewController : UICollectionViewController<NSFetchedResultsControllerDelegate>
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+
+@property(nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
 
 @end

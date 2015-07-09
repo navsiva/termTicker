@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
+#import "SearchHistory.h"
 
 @interface ViewController ()
 
@@ -15,22 +17,24 @@
 @implementation ViewController
 
 -(void)loadTerm{
-    if(self.term){
+    if(self.searchHistory){
         
-        self.termTextField.text = self.term.term;
-        self.siteTextField.text = self.term.site;
+        self.termTextField.text = self.searchHistory.term;
+        self.siteTextField.text = self.searchHistory.url;
         
     }
         
     
 }
-    
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self loadTerm];
+//    
+    AppDelegate *appDelegate= [[UIApplication sharedApplication]delegate];
+    _managedObjectContext= [appDelegate managedObjectContext];
     
     
  
@@ -49,23 +53,50 @@
 
 - (IBAction)searchPressed:(id)sender {
     
-    
-    
-    
     //check if there is text and set user input to term object
+    
+    
     
     if (sender !=self.searchButton) return;
     
     if (self.termTextField.text.length > 0 && self.siteTextField.text.length > 0) {
         
-        self.term = [[Term alloc] init];
-        self.term.site = self.siteTextField.text;
         
-        
-        
-        
+        if (self.termTextField.text.length && self.siteTextField.text.length){
+            self.searchButton.enabled = YES;
+        } else (self.searchButton.enabled = NO);
         
         self.counterLabel.text = @"0";
+        
+        
+        self.searchHistory = [NSEntityDescription insertNewObjectForEntityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
+        self.searchHistory.url = self.siteTextField.text;
+        self.searchHistory.term= self.termTextField.text;
+        
+        
+        NSDate *currentDate = [NSDate date];
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
+        NSString *formattedTimeStamp = [format stringFromDate:currentDate];
+        [format setDateFormat:formattedTimeStamp];
+        
+        NSLog(@"%@", formattedTimeStamp);
+        
+        self.searchHistory.timeStamp = currentDate;
+        
+        
+       
+//        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//        [format setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS"];
+//        NSString *formattedTimeStamp = [format stringFromDate:self.searchHistory.timeStamp];
+//        [format setDateFormat:formattedTimeStamp];
+        
+        
+//        NSString *countString= [NSString stringWithFormat:@"%d",self.searchHistory.count];
+//        
+//        self.counterLabel.text = countString;
+//        
+//        NSLog(@"%@", countString);
     }
     
     //pass string to webview and
@@ -92,11 +123,15 @@
     //UserInformation *userInput= [[UserInformation alloc]init];
     
     
-    self.term = [[Term alloc] init];
-    self.term.term = self.termTextField.text;
+//    self.searchHistory= [NSEntityDescription insertNewObjectForEntityForName:@"SearchHistory" inManagedObjectContext:self.managedObjectContext];
+//    
+//    self.searchHistory.term= self.termTextField.text;
+    
+//    self.term = [[Term alloc] init];
+//    self.term.term = self.termTextField.text;
     
     
-    NSString *formattedTerm = [NSString stringWithFormat:@"\\b%@\\b", self.term.term];
+    NSString *formattedTerm = [NSString stringWithFormat:@"\\b%@\\b", self.searchHistory.term];
     
     
     
@@ -116,7 +151,22 @@
         NSString *formattedResult = [NSString stringWithFormat:@"%lu", (unsigned long)countOfWords];
         
         self.counterLabel.text = formattedResult;
+        
+        }
+    
+
+    
+    self.searchHistory.count = countOfWords;
+    
+    
+    
+    
+    NSError *error1= nil;
+    
+    if (![_managedObjectContext save:&error1]) {
+        // handles error
     }
+
     
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
