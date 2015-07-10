@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchQuery.h"
+#import "SearchResult.h"
 
 @interface HistoryTableViewController : UITableViewController
 
 @property(nonatomic,strong) SearchQuery *query;
+
+@property(nonatomic,strong) SearchResult *result;
 @end

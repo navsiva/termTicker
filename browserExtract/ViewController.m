@@ -57,10 +57,12 @@
     
     //check if there is text and set user input to term object
     
-    self.searchResult= nil;
+    //self.counterLabel.text = @"0";
     
-        
-
+    
+    [self.view endEditing:YES];
+    self.searchResult= nil;
+    self.counterLabel.text = @"0";
         
     
         
@@ -112,7 +114,7 @@
 - (void) webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *plainText = [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerText"];
-   // NSLog(@"%@", plainText);
+    NSLog(@"%@", plainText);
     
     
     NSUInteger countOfWords= 0;
@@ -146,23 +148,32 @@
         NSLog(@"Found word: %@, count of words: %lu", word,(unsigned long)countOfWords);
         
         NSString *formattedResult = [NSString stringWithFormat:@"%lu", (unsigned long)countOfWords];
-        
         self.counterLabel.text = formattedResult;
+
+      
         
         }
     
     if(!self.searchResult ){
         self.searchResult = [NSEntityDescription insertNewObjectForEntityForName:@"SearchResult" inManagedObjectContext:self.managedObjectContext];
         [self.searchQuery addResultsObject:self.searchResult];
+        
+
+        
     }
     //NSLog(@"count of words is %lu", countOfWords);
     
     if (countOfWords < self.searchResult.count ) {
         countOfWords = self.searchResult.count;
+        
     }
+    
+    
+
+    
     self.searchResult.count = countOfWords;
     self.searchResult.timeStamp= [NSDate date];
-     self.searchQuery.timeStamp= [NSDate date];
+    self.searchQuery.timeStamp= [NSDate date];
     
     
     
@@ -187,7 +198,7 @@
                 SearchQuery *object= self.searchQuery;
                 destination.query= object;
                 
-                NSLog(@"%@", object);
+                
     
     
             }

@@ -82,8 +82,37 @@
     
     [self loadPastTerms];
     
+    UILongPressGestureRecognizer *cellLongPressed = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleLongPress:)];
+    cellLongPressed.minimumPressDuration = .5; //seconds
+    cellLongPressed.delegate = self;
+    [self.collectionView addGestureRecognizer:cellLongPressed];
+    
 }
 
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    if (indexPath == nil){
+        NSLog(@"couldn't find index path");
+    } else {
+        // get the cell at indexPath (the one you long pressed)
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSManagedObject *objectToBeDeleted = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [context deleteObject:objectToBeDeleted];
+        
+        NSError *error = nil;
+        if (![context save:&error])
+        {
+            NSLog(@"Error deleting term, %@", [error userInfo]);
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
 
     [super didReceiveMemoryWarning];

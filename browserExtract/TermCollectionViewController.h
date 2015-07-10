@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface TermCollectionViewController : UICollectionViewController<NSFetchedResultsControllerDelegate>
+@interface TermCollectionViewController : UICollectionViewController<NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
