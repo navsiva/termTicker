@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.allowsSelection = NO;
     
     
     self.tableView.backgroundColor = [UIColor blackColor];
@@ -62,38 +63,44 @@
    HistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     
-    [self.historyArray objectAtIndex:indexPath.row];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    
+    NSArray *allResults = self.historyArray;
+    NSArray *sortedResults = [allResults sortedArrayUsingDescriptors:sortDescriptors];
+
+    self.historyArray = [sortedResults mutableCopy];
+    
+    
+    
+    SearchResult *result = [self.historyArray objectAtIndex:indexPath.row];
     
     cell.termHistoryLabel.text= self.query.term;
     cell.siteHistoryLabel.text= self.query.url;
+    
+    NSString *countString = [NSString stringWithFormat:@"%i", result.count];
+    
+    cell.counterHistoryLabel.text = countString;
   
-//    NSString *countString = [NSString stringWithFormat:@"%@", [self.historyArray objectAtIndex:indexPath.row]];
-//    cell.counterHistoryLabel.text = countString;
-    
-//    NSString *countString = [NSString stringWithFormat:@"%d", self.result.count];
-//    cell.counterHistoryLabel.text = [self.historyArray mutableArrayValueForKeyPath:@"count"];
+
     
     
     
     
-//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
-//    NSArray *sortDescriptors = @[sortDescriptor];
-//    
-//    
-//    NSArray *allResults = self.query.results.allObjects;
-//    NSArray *sortedResults = [allResults sortedArrayUsingDescriptors:sortDescriptors];
+
+
     
     
     
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd' at 'HH:mm:ss"];
+    NSString *formattedTimeStamp = [format stringFromDate:result.timeStamp];
     
+    cell.dateHistoryLabel.text = formattedTimeStamp;
     
-//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-//    [format setDateFormat:@"yyyy-MM-dd' at 'HH:mm:ss"];
-//    NSString *formattedTimeStamp = [format stringFromDate:self.query.timeStamp];
-//    
-//    cell.dateHistoryLabel.text = f
-//    cell.counterHistoryLabel.text= countString;
-//    
+//
     
     return cell;
 }

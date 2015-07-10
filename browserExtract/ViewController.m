@@ -24,6 +24,35 @@
         self.termTextField.text = self.searchQuery.term;
         self.siteTextField.text = self.searchQuery.url;
         
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+        NSArray *sortDescriptors = @[sortDescriptor];
+        
+        
+        NSArray *allResults = self.searchQuery.results.allObjects;
+        NSArray *sortedResults = [allResults sortedArrayUsingDescriptors:sortDescriptors];
+        
+        
+        SearchResult *mostRecent = [sortedResults firstObject];
+        
+        
+        NSString *countString = [NSString stringWithFormat:@"%d", mostRecent.count];
+        
+        self.counterLabel.text = countString;
+    
+        
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyy-MM-dd' at 'HH:mm:ss"];
+        NSString *formattedTimeStamp = [format stringFromDate:self.searchQuery.timeStamp];
+        
+       
+        [format setDateFormat:formattedTimeStamp];
+        self.dateLabel.text = formattedTimeStamp;
+        
+        
+        
+        
     }
         
     
@@ -169,11 +198,24 @@
     }
     
     
+    
+    
 
     
     self.searchResult.count = countOfWords;
     self.searchResult.timeStamp= [NSDate date];
     self.searchQuery.timeStamp= [NSDate date];
+    
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd' at 'HH:mm:ss"];
+    NSString *formattedTimeStamp = [format stringFromDate:self.searchResult.timeStamp];
+    
+    
+    [format setDateFormat:formattedTimeStamp];
+    self.dateLabel.text = formattedTimeStamp;
+    
+    
     
     
     

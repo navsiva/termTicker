@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ihX-7H-MWd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +40,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TERM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBW-Bi-kVw">
-                                <rect key="frame" x="64" y="140" width="52" height="21"/>
+                                <rect key="frame" x="64" y="140" width="52" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -73,6 +74,18 @@
                                 <color key="textColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/DD/YYYY 18:04:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJh-V1-ESp">
+                                <rect key="frame" x="120" y="293" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST SEARCHED:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xv-YN-oYe">
+                                <rect key="frame" x="40" y="293" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -80,6 +93,7 @@
                             <constraint firstItem="qJW-RY-CF4" firstAttribute="baseline" secondItem="d9y-PJ-Av0" secondAttribute="baseline" id="61s-Zw-glW"/>
                             <constraint firstItem="udP-0A-qA2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="19" id="6QS-uu-Jy1"/>
                             <constraint firstItem="qJW-RY-CF4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="37" id="6Ve-8F-qLF"/>
+                            <constraint firstItem="QJh-V1-ESp" firstAttribute="leading" secondItem="5xv-YN-oYe" secondAttribute="trailing" constant="4" id="7ea-KG-V7W"/>
                             <constraint firstItem="fBW-Bi-kVw" firstAttribute="top" secondItem="qJW-RY-CF4" secondAttribute="bottom" constant="18" id="8FM-zj-H8E"/>
                             <constraint firstItem="qJW-RY-CF4" firstAttribute="trailing" secondItem="fBW-Bi-kVw" secondAttribute="trailing" id="B56-5Q-LIw"/>
                             <constraint firstItem="udP-0A-qA2" firstAttribute="top" secondItem="ZGM-y6-0IV" secondAttribute="bottom" constant="8" id="C43-mm-k4L"/>
@@ -90,21 +104,27 @@
                             <constraint firstItem="udP-0A-qA2" firstAttribute="top" secondItem="ghL-EL-gSR" secondAttribute="bottom" constant="35" id="Jcr-bf-3os"/>
                             <constraint firstItem="ghL-EL-gSR" firstAttribute="top" secondItem="4tY-Ba-ghW" secondAttribute="bottom" constant="19" id="MrC-X7-cOM"/>
                             <constraint firstItem="d9y-PJ-Av0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="34" id="S86-1i-tdZ"/>
+                            <constraint firstItem="QJh-V1-ESp" firstAttribute="top" secondItem="ZGM-y6-0IV" secondAttribute="bottom" constant="-29" id="Sbe-8Z-Fc2"/>
                             <constraint firstItem="4tY-Ba-ghW" firstAttribute="trailing" secondItem="3fV-3R-d45" secondAttribute="trailing" id="Sec-3E-Ee6"/>
+                            <constraint firstItem="5xv-YN-oYe" firstAttribute="firstBaseline" secondItem="QJh-V1-ESp" secondAttribute="firstBaseline" id="TWb-2r-b70"/>
                             <constraint firstAttribute="trailingMargin" secondItem="udP-0A-qA2" secondAttribute="trailing" constant="19" id="V9T-0f-zzg"/>
                             <constraint firstItem="ZGM-y6-0IV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="19" id="VSb-ZV-3st"/>
                             <constraint firstItem="4tY-Ba-ghW" firstAttribute="trailing" secondItem="d9y-PJ-Av0" secondAttribute="trailing" id="XuR-zd-Aaa"/>
+                            <constraint firstItem="5xv-YN-oYe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="24" id="YiR-gN-Vqe"/>
                             <constraint firstItem="4tY-Ba-ghW" firstAttribute="top" secondItem="3fV-3R-d45" secondAttribute="bottom" constant="16" id="ZV7-aq-ep0"/>
                             <constraint firstItem="udP-0A-qA2" firstAttribute="top" secondItem="ZGM-y6-0IV" secondAttribute="bottom" constant="8" id="bhX-83-caE"/>
                             <constraint firstItem="ZGM-y6-0IV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="jI9-qo-cCI"/>
                             <constraint firstAttribute="centerX" secondItem="ghL-EL-gSR" secondAttribute="centerX" constant="-0.25" id="jK9-3D-7yl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4tY-Ba-ghW" secondAttribute="trailing" constant="48" id="jMc-xf-Sa9"/>
                             <constraint firstItem="ghL-EL-gSR" firstAttribute="top" secondItem="4tY-Ba-ghW" secondAttribute="bottom" constant="19" id="jvQ-C6-wbn"/>
+                            <constraint firstItem="5xv-YN-oYe" firstAttribute="baseline" secondItem="QJh-V1-ESp" secondAttribute="baseline" id="nLJ-gI-BKp"/>
+                            <constraint firstItem="QJh-V1-ESp" firstAttribute="leading" secondItem="ZGM-y6-0IV" secondAttribute="trailing" constant="-165" id="puG-uJ-itz"/>
                             <constraint firstItem="4tY-Ba-ghW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="48" id="sKw-et-Fa5"/>
                             <constraint firstItem="d9y-PJ-Av0" firstAttribute="leading" secondItem="qJW-RY-CF4" secondAttribute="trailing" constant="8" id="tQL-xa-B21"/>
+                            <constraint firstItem="udP-0A-qA2" firstAttribute="top" secondItem="5xv-YN-oYe" secondAttribute="bottom" constant="16" id="w5R-nq-yZV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mVo-jp-9vo">
+                    <navigationItem key="navigationItem" title="Query" id="mVo-jp-9vo">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="i4Y-7w-JYc">
                             <color key="tintColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -115,6 +135,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="counterLabel" destination="ghL-EL-gSR" id="qHR-hC-qeE"/>
+                        <outlet property="dateLabel" destination="QJh-V1-ESp" id="WMJ-98-IvT"/>
                         <outlet property="searchButton" destination="4tY-Ba-ghW" id="udQ-ZP-yvI"/>
                         <outlet property="siteTextField" destination="d9y-PJ-Av0" id="3N4-7V-SjN"/>
                         <outlet property="termTextField" destination="3fV-3R-d45" id="rpG-1u-HfZ"/>
@@ -143,7 +164,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lionel Messi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHT-xe-c1S">
-                                            <rect key="frame" x="17" y="13" width="115" height="25.5"/>
+                                            <rect key="frame" x="17" y="13" width="115" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -163,8 +184,11 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="http://www.fifa.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-Et-aeU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.fifa.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-Et-aeU">
                                             <rect key="frame" x="17" y="41" width="228" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="Ckb-ji-OJl"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -174,11 +198,13 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="2gl-2H-4ik" secondAttribute="bottom" constant="5.5" id="397-Vp-fH4"/>
                                         <constraint firstAttribute="centerY" secondItem="OPx-ds-kEZ" secondAttribute="centerY" constant="2.25" id="9Q2-lO-SIc"/>
                                         <constraint firstItem="2gl-2H-4ik" firstAttribute="leading" secondItem="g3c-fW-9pS" secondAttribute="leadingMargin" constant="9" id="9eZ-cZ-tTI"/>
+                                        <constraint firstItem="yC4-Et-aeU" firstAttribute="top" secondItem="HHT-xe-c1S" secondAttribute="bottom" constant="2" id="A4I-tf-jUg"/>
                                         <constraint firstItem="OPx-ds-kEZ" firstAttribute="leading" secondItem="yC4-Et-aeU" secondAttribute="trailing" constant="8" id="AVD-KQ-PmL"/>
                                         <constraint firstItem="HHT-xe-c1S" firstAttribute="top" secondItem="g3c-fW-9pS" secondAttribute="topMargin" constant="5" id="dSn-wm-jbA"/>
                                         <constraint firstItem="yC4-Et-aeU" firstAttribute="leading" secondItem="g3c-fW-9pS" secondAttribute="leadingMargin" constant="9" id="dwa-Dd-LX0"/>
                                         <constraint firstItem="HHT-xe-c1S" firstAttribute="leading" secondItem="g3c-fW-9pS" secondAttribute="leadingMargin" constant="9" id="lfI-ga-OgR"/>
                                         <constraint firstItem="OPx-ds-kEZ" firstAttribute="top" secondItem="g3c-fW-9pS" secondAttribute="topMargin" constant="22" id="lvb-FL-bsL"/>
+                                        <constraint firstItem="yC4-Et-aeU" firstAttribute="top" secondItem="g3c-fW-9pS" secondAttribute="top" constant="41" id="n7g-Yl-41v"/>
                                         <constraint firstItem="2gl-2H-4ik" firstAttribute="leading" secondItem="g3c-fW-9pS" secondAttribute="leadingMargin" constant="9" id="xVH-CP-B8r"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="OPx-ds-kEZ" secondAttribute="trailing" constant="17" id="zkJ-9T-OP7"/>
                                     </constraints>
@@ -197,7 +223,7 @@
                             <outlet property="delegate" destination="YWg-S5-kuN" id="R07-Xo-waU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="SQH-4e-BDp"/>
+                    <navigationItem key="navigationItem" title="History" id="SQH-4e-BDp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYX-Mt-gC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,13 +292,7 @@
                             <outlet property="delegate" destination="QUj-F5-0fN" id="TsB-QH-hqU"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Tbb-Lz-2pS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="xhk-PI-9SP">
-                            <color key="tintColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refreshPressed:" destination="QUj-F5-0fN" id="HuA-aZ-ztH"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Past Queries" id="Tbb-Lz-2pS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qg6-N5-A7e">
                             <color key="tintColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -285,10 +305,10 @@
             </objects>
             <point key="canvasLocation" x="732" y="379"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Term Ticker-->
         <scene sceneID="Lfj-ck-dAe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ihX-7H-MWd" sceneMemberID="viewController">
+                <navigationController title="Term Ticker" automaticallyAdjustsScrollViewInsets="NO" id="ihX-7H-MWd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="E2T-b1-349">

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
