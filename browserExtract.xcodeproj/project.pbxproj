@@ -17,6 +17,8 @@
 		92060BB11B4C401000ABE684 /* TermCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB01B4C401000ABE684 /* TermCollectionViewController.m */; };
 		92060BB41B4C403C00ABE684 /* TermCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */; };
 		92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92060BB51B4C4CAA00ABE684 /* Main.storyboard */; };
+		927889FA1B4F3E9800D0EC9B /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927889F91B4F3E9800D0EC9B /* HistoryTableViewController.m */; };
+		927889FD1B4F402900D0EC9B /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927889FC1B4F402900D0EC9B /* HistoryTableViewCell.m */; };
 		B683F6621B4ECFA500A691D8 /* QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F6611B4ECFA500A691D8 /* QueueAdditions.m */; };
 		B683F66B1B4F0E8300A691D8 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66A1B4F0E8300A691D8 /* SearchResult.m */; };
 		B683F66E1B4F0E8300A691D8 /* SearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66D1B4F0E8300A691D8 /* SearchQuery.m */; };
@@ -51,6 +53,10 @@
 		92060BB21B4C403C00ABE684 /* TermCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermCollectionViewCell.h; path = ../TermCollectionViewCell.h; sourceTree = "<group>"; };
 		92060BB31B4C403C00ABE684 /* TermCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermCollectionViewCell.m; path = ../TermCollectionViewCell.m; sourceTree = "<group>"; };
 		92060BB61B4C4CAA00ABE684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		927889F81B4F3E9800D0EC9B /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		927889F91B4F3E9800D0EC9B /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		927889FB1B4F402900D0EC9B /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewCell.h; path = ../HistoryTableViewCell.h; sourceTree = "<group>"; };
+		927889FC1B4F402900D0EC9B /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewCell.m; path = ../HistoryTableViewCell.m; sourceTree = "<group>"; };
 		B683F6601B4ECFA500A691D8 /* QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueAdditions.h; sourceTree = "<group>"; };
 		B683F6611B4ECFA500A691D8 /* QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAdditions.m; sourceTree = "<group>"; };
 		B683F6691B4F0E8300A691D8 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
@@ -99,6 +105,10 @@
 		92060B791B4AF17700ABE684 /* browserExtract */ = {
 			isa = PBXGroup;
 			children = (
+				927889FB1B4F402900D0EC9B /* HistoryTableViewCell.h */,
+				927889FC1B4F402900D0EC9B /* HistoryTableViewCell.m */,
+				927889F81B4F3E9800D0EC9B /* HistoryTableViewController.h */,
+				927889F91B4F3E9800D0EC9B /* HistoryTableViewController.m */,
 				92060BAF1B4C401000ABE684 /* TermCollectionViewController.h */,
 				92060BB01B4C401000ABE684 /* TermCollectionViewController.m */,
 				B683F6601B4ECFA500A691D8 /* QueueAdditions.h */,
@@ -110,8 +120,8 @@
 				92060BA61B4AF8DA00ABE684 /* ViewController.h */,
 				92060BA71B4AF8DA00ABE684 /* ViewController.m */,
 				92060BB51B4C4CAA00ABE684 /* Main.storyboard */,
-				92060B8A1B4AF17800ABE684 /* Images.xcassets */,
 				92060B8C1B4AF17800ABE684 /* LaunchScreen.xib */,
+				92060B8A1B4AF17800ABE684 /* Images.xcassets */,
 				92060B7A1B4AF17700ABE684 /* Supporting Files */,
 			);
 			path = browserExtract;
@@ -258,7 +268,9 @@
 				92060BB11B4C401000ABE684 /* TermCollectionViewController.m in Sources */,
 				92060BB41B4C403C00ABE684 /* TermCollectionViewCell.m in Sources */,
 				92060B801B4AF17800ABE684 /* AppDelegate.m in Sources */,
+				927889FD1B4F402900D0EC9B /* HistoryTableViewCell.m in Sources */,
 				92060B831B4AF17800ABE684 /* browserExtract.xcdatamodeld in Sources */,
+				927889FA1B4F3E9800D0EC9B /* HistoryTableViewController.m in Sources */,
 				92060B7D1B4AF17800ABE684 /* main.m in Sources */,
 				92060BA81B4AF8DA00ABE684 /* ViewController.m in Sources */,
 				B683F66B1B4F0E8300A691D8 /* SearchResult.m in Sources */,

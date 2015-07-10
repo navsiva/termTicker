@@ -12,6 +12,7 @@
 #import "SearchQuery.h"
 #import "AppDelegate.h"
 #import "QueueAdditions.h"
+#import "HistoryTableViewController.h"
 
 @interface TermCollectionViewController ()
 
@@ -171,8 +172,18 @@
         
         SearchQuery *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         
+        
         destination.searchQuery = object;
         destination.managedObjectContext = self.managedObjectContext;
+        
+//        if ([[segue identifier] isEqualToString:@"showHistory"]) {
+//            HistoryTableViewController *destination= segue.destinationViewController;
+//            
+//            SearchQuery *object= [[self fetchedResultsController]objectAtIndexPath:indexPath];
+//            destination.query= object;
+//            
+//            
+//        }
 
    
         
@@ -225,7 +236,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"Controller Did Change");
+ //   NSLog(@"Controller Did Change");
     [self.collectionView reloadData];
 }
 

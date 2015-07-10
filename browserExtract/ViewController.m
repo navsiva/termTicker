@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "HistoryTableViewController.h"
 
 
 @interface ViewController ()
@@ -79,11 +80,13 @@
 //        self.searchHistory.timeStamp = currentDate;
         
     
+    BOOL equalTerms = [self.searchQuery.term isEqualToString:self.termTextField.text];
+    BOOL equalUrls = [self.searchQuery.url isEqualToString:self.siteTextField.text];
     
     
     //pass string to webview and
     
-    if(![self.searchQuery.term isEqualToString:self.termTextField.text] || ![self.searchQuery.url isEqualToString:self.siteTextField.text]){
+    if(!(equalTerms && equalUrls)){
      
         
         // TODO: check if a query with term == ourterm and url == oururl, if it does exist, use that instead of making a new one.
@@ -109,7 +112,7 @@
 - (void) webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *plainText = [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerText"];
-    NSLog(@"%@", plainText);
+   // NSLog(@"%@", plainText);
     
     
     NSUInteger countOfWords= 0;
@@ -152,7 +155,11 @@
         self.searchResult = [NSEntityDescription insertNewObjectForEntityForName:@"SearchResult" inManagedObjectContext:self.managedObjectContext];
         [self.searchQuery addResultsObject:self.searchResult];
     }
+    //NSLog(@"count of words is %lu", countOfWords);
     
+    if (countOfWords < self.searchResult.count ) {
+        countOfWords = self.searchResult.count;
+    }
     self.searchResult.count = countOfWords;
     self.searchResult.timeStamp= [NSDate date];
      self.searchQuery.timeStamp= [NSDate date];
@@ -172,16 +179,36 @@
 }
 
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-
-
-    if (!self.searchQuery.timeStamp) {
-        
-        [self.managedObjectContext deleteObject:self.searchQuery];
-        self.searchQuery = nil;
-    }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+            if ([[segue identifier] isEqualToString:@"showHistory"]) {
+                HistoryTableViewController *destination= segue.destinationViewController;
+    
+                SearchQuery *object= self.searchQuery;
+                destination.query= object;
+                
+                NSLog(@"%@", object);
+    
+    
+            }
+    
 }
+
+
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+//
+//    
+//    
+//
+//    if (!self.searchQuery.timeStamp)
+//        
+//        //NSURLErrorDomain error -999 on bbc.com
+//        
+//        [self.managedObjectContext deleteObject:self.searchQuery];
+//        self.searchQuery = nil;
+//    }
+//
+//
 
 
 

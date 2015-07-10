@@ -109,6 +109,7 @@
                             <color key="tintColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="historyButton:" destination="vXZ-lx-hvc" id="a1u-cq-LC1"/>
+                                <segue destination="YWg-S5-kuN" kind="push" identifier="showHistory" id="RNV-Xi-Vom"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,6 +124,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1179" y="381.99999999999994"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="fsa-9T-TUs">
+            <objects>
+                <tableViewController id="YWg-S5-kuN" customClass="HistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mtl-Rt-hB2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="101" id="chS-ch-XW3" customClass="HistoryTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="chS-ch-XW3" id="g3c-fW-9pS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lionel Messi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHT-xe-c1S">
+                                            <rect key="frame" x="17" y="6" width="236" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MM/DD/YYYY 18:04:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gl-2H-4ik">
+                                            <rect key="frame" x="17" y="66" width="236" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-ds-kEZ">
+                                            <rect key="frame" x="261" y="29.5" width="42" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="http://www.fifa.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-Et-aeU">
+                                            <rect key="frame" x="17" y="40" width="236" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="counterHistoryLabel" destination="OPx-ds-kEZ" id="x88-Zb-1eP"/>
+                                    <outlet property="dateHistoryLabel" destination="2gl-2H-4ik" id="Ay6-5o-bXY"/>
+                                    <outlet property="siteHistoryLabel" destination="yC4-Et-aeU" id="4uq-nR-sh3"/>
+                                    <outlet property="termHistoryLabel" destination="HHT-xe-c1S" id="OIg-vg-NPf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YWg-S5-kuN" id="2ak-Az-CqN"/>
+                            <outlet property="delegate" destination="YWg-S5-kuN" id="R07-Xo-waU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="SQH-4e-BDp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CYX-Mt-gC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="379"/>
         </scene>
         <!--Term Collection View Controller-->
         <scene sceneID="JM7-rD-uIm">
