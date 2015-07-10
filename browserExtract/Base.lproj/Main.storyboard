@@ -22,23 +22,21 @@
                                 <rect key="frame" x="35" y="72" width="250" height="250"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST SEARCHED:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xv-YN-oYe">
+                                <rect key="frame" x="40" y="293" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-PJ-Av0">
                                 <rect key="frame" x="124" y="98" width="132" height="30"/>
                                 <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tY-Ba-ghW">
-                                <rect key="frame" x="64" y="182" width="192" height="30"/>
-                                <color key="backgroundColor" red="0.12549020350000001" green="0.85490202900000001" blue="0.75294125079999996" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.11412153529999999" green="0.1855730793" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="searchPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yEu-pr-nyA"/>
+                                    <action selector="editingChanged" destination="vXZ-lx-hvc" eventType="editingChanged" id="Z4f-Fs-KR0"/>
                                 </connections>
-                            </button>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TERM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBW-Bi-kVw">
                                 <rect key="frame" x="64" y="140" width="52" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -50,6 +48,9 @@
                                 <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingChanged" destination="vXZ-lx-hvc" eventType="editingChanged" id="jhD-X4-go3"/>
+                                </connections>
                             </textField>
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udP-0A-qA2">
                                 <rect key="frame" x="35" y="330" width="250" height="206"/>
@@ -74,18 +75,27 @@
                                 <color key="textColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/DD/YYYY 18:04:23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJh-V1-ESp">
-                                <rect key="frame" x="120" y="293" width="110" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NO PREVIOUS QUERIES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJh-V1-ESp">
+                                <rect key="frame" x="120" y="293" width="0.0" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST SEARCHED:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xv-YN-oYe">
-                                <rect key="frame" x="40" y="293" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tY-Ba-ghW">
+                                <rect key="frame" x="64" y="182" width="192" height="30"/>
+                                <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.11412153529999999" green="0.1855730793" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Enter a valid query"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yEu-pr-nyA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

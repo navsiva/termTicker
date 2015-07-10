@@ -19,6 +19,7 @@
 		92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92060BB51B4C4CAA00ABE684 /* Main.storyboard */; };
 		927889FA1B4F3E9800D0EC9B /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 927889F91B4F3E9800D0EC9B /* HistoryTableViewController.m */; };
 		927889FD1B4F402900D0EC9B /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927889FC1B4F402900D0EC9B /* HistoryTableViewCell.m */; };
+		9288D1FA1B50021600E50735 /* brain-gears.png in Resources */ = {isa = PBXBuildFile; fileRef = 9288D1F91B50021600E50735 /* brain-gears.png */; };
 		B683F6621B4ECFA500A691D8 /* QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F6611B4ECFA500A691D8 /* QueueAdditions.m */; };
 		B683F66B1B4F0E8300A691D8 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66A1B4F0E8300A691D8 /* SearchResult.m */; };
 		B683F66E1B4F0E8300A691D8 /* SearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B683F66D1B4F0E8300A691D8 /* SearchQuery.m */; };
@@ -57,6 +58,7 @@
 		927889F91B4F3E9800D0EC9B /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		927889FB1B4F402900D0EC9B /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryTableViewCell.h; path = ../HistoryTableViewCell.h; sourceTree = "<group>"; };
 		927889FC1B4F402900D0EC9B /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryTableViewCell.m; path = ../HistoryTableViewCell.m; sourceTree = "<group>"; };
+		9288D1F91B50021600E50735 /* brain-gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brain-gears.png"; path = "../../../Downloads/brain-gears.png"; sourceTree = "<group>"; };
 		B683F6601B4ECFA500A691D8 /* QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueAdditions.h; sourceTree = "<group>"; };
 		B683F6611B4ECFA500A691D8 /* QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueAdditions.m; sourceTree = "<group>"; };
 		B683F6691B4F0E8300A691D8 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				92060BB51B4C4CAA00ABE684 /* Main.storyboard */,
 				92060B8C1B4AF17800ABE684 /* LaunchScreen.xib */,
 				92060B8A1B4AF17800ABE684 /* Images.xcassets */,
+				9288D1F91B50021600E50735 /* brain-gears.png */,
 				92060B7A1B4AF17700ABE684 /* Supporting Files */,
 			);
 			path = browserExtract;
@@ -168,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92060B761B4AF17700ABE684 /* browserExtract */ = {
+		92060B761B4AF17700ABE684 /* Term Ticker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92060B9D1B4AF17800ABE684 /* Build configuration list for PBXNativeTarget "browserExtract" */;
+			buildConfigurationList = 92060B9D1B4AF17800ABE684 /* Build configuration list for PBXNativeTarget "Term Ticker" */;
 			buildPhases = (
 				92060B731B4AF17700ABE684 /* Sources */,
 				92060B741B4AF17700ABE684 /* Frameworks */,
@@ -180,7 +183,7 @@
 			);
 			dependencies = (
 			);
-			name = browserExtract;
+			name = "Term Ticker";
 			productName = browserExtract;
 			productReference = 92060B771B4AF17700ABE684 /* browserExtract.app */;
 			productType = "com.apple.product-type.application";
@@ -234,7 +237,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92060B761B4AF17700ABE684 /* browserExtract */,
+				92060B761B4AF17700ABE684 /* Term Ticker */,
 				92060B921B4AF17800ABE684 /* browserExtractTests */,
 			);
 		};
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92060BB71B4C4CAA00ABE684 /* Main.storyboard in Resources */,
+				9288D1FA1B50021600E50735 /* brain-gears.png in Resources */,
 				92060B8E1B4AF17800ABE684 /* LaunchScreen.xib in Resources */,
 				92060B8B1B4AF17800ABE684 /* Images.xcassets in Resources */,
 			);
@@ -292,7 +296,7 @@
 /* Begin PBXTargetDependency section */
 		92060B951B4AF17800ABE684 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 92060B761B4AF17700ABE684 /* browserExtract */;
+			target = 92060B761B4AF17700ABE684 /* Term Ticker */;
 			targetProxy = 92060B941B4AF17800ABE684 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -465,7 +469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92060B9D1B4AF17800ABE684 /* Build configuration list for PBXNativeTarget "browserExtract" */ = {
+		92060B9D1B4AF17800ABE684 /* Build configuration list for PBXNativeTarget "Term Ticker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92060B9E1B4AF17800ABE684 /* Debug */,

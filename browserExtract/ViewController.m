@@ -58,11 +58,34 @@
     
 }
 
+- (IBAction)editingChanged {
+    
+    
+    //[self.siteTextField becomeFirstResponder];
+
+    if ([self.termTextField.text length] != 0 && [self.siteTextField.text length] > 7) {
+        [self.searchButton setEnabled:YES];
+    }
+    else {
+        [self.searchButton setEnabled:NO];
+    }
+
+
+    
+    
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     [self loadTerm];
+    
+    
+    [self editingChanged];
 //    
     AppDelegate *appDelegate= [[UIApplication sharedApplication]delegate];
     _managedObjectContext= [appDelegate managedObjectContext];
@@ -83,6 +106,9 @@
 
 
 - (IBAction)searchPressed:(id)sender {
+    
+    
+    
     
     //check if there is text and set user input to term object
     
