@@ -25,7 +25,7 @@
                                 <rect key="frame" x="124" y="98" width="132" height="30"/>
                                 <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                 <connections>
                                     <action selector="editingChanged" destination="vXZ-lx-hvc" eventType="editingChanged" id="Z4f-Fs-KR0"/>
                                 </connections>
@@ -36,15 +36,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-3R-d45">
-                                <rect key="frame" x="124" y="136" width="132" height="30"/>
-                                <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingChanged" destination="vXZ-lx-hvc" eventType="editingChanged" id="jhD-X4-go3"/>
-                                </connections>
-                            </textField>
                             <webView opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udP-0A-qA2">
                                 <rect key="frame" x="35" y="330" width="250" height="206"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,6 +80,15 @@
                                 <color key="textColor" red="1" green="0.79947056719999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-3R-d45">
+                                <rect key="frame" x="124" y="136" width="132" height="30"/>
+                                <color key="backgroundColor" red="0.12549020350000001" green="0.91764712329999998" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
+                                <connections>
+                                    <action selector="editingChanged" destination="vXZ-lx-hvc" eventType="editingChanged" id="jhD-X4-go3"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

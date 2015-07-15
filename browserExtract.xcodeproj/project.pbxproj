@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		92060B771B4AF17700ABE684 /* browserExtract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = browserExtract.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92060B771B4AF17700ABE684 /* Term Ticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Term Ticker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92060B7B1B4AF17700ABE684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92060B7C1B4AF17700ABE684 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92060B7E1B4AF17800ABE684 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		92060B781B4AF17700ABE684 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92060B771B4AF17700ABE684 /* browserExtract.app */,
+				92060B771B4AF17700ABE684 /* Term Ticker.app */,
 				92060B931B4AF17800ABE684 /* browserExtractTests.xctest */,
 			);
 			name = Products;
@@ -185,7 +185,7 @@
 			);
 			name = "Term Ticker";
 			productName = browserExtract;
-			productReference = 92060B771B4AF17700ABE684 /* browserExtract.app */;
+			productReference = 92060B771B4AF17700ABE684 /* Term Ticker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		92060B921B4AF17800ABE684 /* browserExtractTests */ = {
