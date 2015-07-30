@@ -223,11 +223,6 @@
         
     }
     
-    
-    
-    
-
-    
     self.searchResult.count = countOfWords;
     self.searchResult.timeStamp= [NSDate date];
     self.searchQuery.timeStamp= [NSDate date];
